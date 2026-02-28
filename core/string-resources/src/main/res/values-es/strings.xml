@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Repnote</string>
+
+    <!-- Auth Strings -->
+    <string name="auth_welcome_back">Bienvenido de nuevo</string>
+    <string name="auth_create_account">Crear cuenta</string>
+    <string name="auth_email">Correo electrónico</string>
+    <string name="auth_password">Contraseña</string>
+    <string name="auth_confirm_password">Confirmar contraseña</string>
+    <string name="auth_sign_in">Iniciar sesión</string>
+    <string name="auth_sign_up">Registrarse</string>
+    <string name="auth_register">Registrarse</string>
+    <string name="auth_sign_out">Cerrar sesión</string>
+    <string name="auth_google_sign_in">Iniciar sesión con Google</string>
+    <string name="auth_no_account">\¿No tienes cuenta? Regístrate</string>
+    <string name="auth_have_account">\¿Ya tienes cuenta? Inicia sesión</string>
+
+    <!-- Error Messages -->
+    <string name="error_invalid_email">Dirección de correo electrónico no válida</string>
+    <string name="error_weak_password">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="error_passwords_dont_match">Las contraseñas no coinciden</string>
+    <string name="error_invalid_credentials">Correo o contraseña incorrectos</string>
+    <string name="error_user_not_found">Usuario no encontrado</string>
+    <string name="error_email_in_use">El correo ya está en uso</string>
+    <string name="error_network">Error de red. Por favor verifica tu conexión</string>
+
+    <!-- Home Screen -->
+    <string name="home_welcome">\¡Bienvenido a Repnote!</string>
+    <string name="home_welcome_back">\¡Bienvenido de nuevo!</string>
+    <string name="home_logged_in_as">Sesión iniciada como:</string>
+    <string name="home_placeholder_message">Esta es una pantalla de inicio provisional.</string>
+    <string name="home_implementation_message">Ahora puedes implementar las funciones principales de tu app aquí.</string>
+    <string name="home_resume_active_workout">Reanudar entrenamiento activo</string>
+    <string name="home_recent_workouts">Entrenamientos recientes</string>
+    <string name="home_no_workouts_message">\¡Aún no hay entrenamientos. Comienza tu primer entrenamiento desde la pestaña de Rutinas!</string>
+
+    <!-- Routine Actions -->
+    <string name="routine_resume_active_workout">Reanudar Entrenamiento Activo</string>
+
+    <!-- Muscle Groups -->
+    <string name="muscle_chest">Pecho</string>
+    <string name="muscle_back">Espalda</string>
+    <string name="muscle_shoulders">Hombros</string>
+    <string name="muscle_biceps">Bíceps</string>
+    <string name="muscle_triceps">Tríceps</string>
+    <string name="muscle_forearms">Antebrazos</string>
+    <string name="muscle_quads">Cuádriceps</string>
+    <string name="muscle_hamstrings">Isquiotibiales</string>
+    <string name="muscle_glutes">Glúteos</string>
+    <string name="muscle_calves">Pantorrillas</string>
+    <string name="muscle_abs">Abdominales</string>
+    <string name="muscle_obliques">Oblicuos</string>
+
+    <!-- Exercise Strings -->
+    <string name="exercise_create">Crear Ejercicio</string>
+    <string name="exercise_edit">Editar Ejercicio</string>
+    <string name="exercise_delete">Eliminar Ejercicio</string>
+    <string name="exercise_name">Nombre del Ejercicio</string>
+    <string name="exercise_description">Descripción</string>
+    <string name="exercise_primary_muscle">Músculo Principal</string>
+    <string name="exercise_secondary_muscles">Músculos Secundarios</string>
+    <string name="exercise_image">Imagen del Ejercicio</string>
+    <string name="exercise_global">Ejercicio Global</string>
+    <string name="exercise_custom">Ejercicio Personalizado</string>
+
+    <!-- Exercise Error Messages -->
+    <string name="error_exercise_not_found">Ejercicio no encontrado</string>
+    <string name="error_unauthorized_access">No tienes permiso para modificar este ejercicio</string>
+    <string name="error_invalid_exercise_data">Datos de ejercicio inválidos</string>
+    <string name="error_storage">Error al subir la imagen</string>
+
+    <!-- Profile Strings -->
+    <string name="profile_title">Perfil</string>
+    <string name="profile_sign_out">Cerrar sesión</string>
+    <string name="profile_logged_in_as">Sesión iniciada como:</string>
+    <string name="profile_my_routines">Mis rutinas</string>
+
+    <!-- Routine Strings -->
+    <string name="routine_my_routines">Mis Rutinas</string>
+    <string name="routine_create">Crear rutina</string>
+    <string name="routine_exercises">Ejercicios</string>
+    <string name="routine_empty_title">Aún no hay rutinas</string>
+    <string name="routine_empty_message">Crea tu primera rutina de entrenamiento para comenzar</string>
+
+    <!-- Routine Creation/Edit -->
+    <string name="routine_create_title">Crear Rutina</string>
+    <string name="routine_edit_title">Editar Rutina</string>
+    <string name="routine_detail_title">Detalles de Rutina</string>
+    <string name="routine_name">Nombre de la Rutina</string>
+    <string name="routine_description">Descripción</string>
+    <string name="routine_description_optional">Descripción (opcional)</string>
+    <string name="routine_add_exercise">Añadir Ejercicio</string>
+    <string name="routine_save">Guardar</string>
+    <string name="routine_cancel">Cancelar</string>
+    <string name="routine_delete">Eliminar Rutina</string>
+    <string name="routine_delete_confirm_title">¿Eliminar Rutina?</string>
+    <string name="routine_delete_confirm_message">Esta acción no se puede deshacer.</string>
+    <string name="routine_edit">Editar</string>
+
+    <!-- Exercise Configuration -->
+    <string name="exercise_sets">Series</string>
+    <string name="exercise_reps">Repeticiones</string>
+    <string name="exercise_rest">Descanso (seg)</string>
+    <string name="exercise_notes">Notas</string>
+    <string name="exercise_remove">Eliminar</string>
+    <string name="exercise_select">Seleccionar Ejercicio</string>
+    <string name="exercise_search">Buscar ejercicios</string>
+
+    <!-- Validation Errors -->
+    <string name="error_routine_name_empty">El nombre de la rutina no puede estar vacío</string>
+    <string name="error_routine_no_exercises">Añade al menos un ejercicio</string>
+    <string name="error_invalid_sets">Las series deben ser mayores a 0</string>
+    <string name="error_invalid_reps">Las repeticiones deben ser mayores a 0</string>
+    <string name="error_invalid_rest">El tiempo de descanso no puede ser negativo</string>
+
+    <!-- Success Messages -->
+    <string name="routine_created">Rutina creada exitosamente</string>
+    <string name="routine_updated">Rutina actualizada exitosamente</string>
+    <string name="routine_deleted">Rutina eliminada</string>
+
+    <!-- Workout History -->
+    <string name="workout_history_title">Historial de entrenamientos</string>
+    <string name="workout_history_empty">No hay entrenamientos registrados</string>
+    <string name="workout_status_completed">✓ Completado</string>
+    <string name="workout_status_in_progress">⏸ En progreso</string>
+    <string name="workout_status_abandoned">✗ Abandonado</string>
+    <string name="workout_free_workout">Entrenamiento libre</string>
+    <string name="workout_ad_hoc">Entrenamiento ad-hoc</string>
+    <string name="workout_exercises_count">%d ejercicios</string>
+    <string name="workout_duration_format" formatted="false">%dh %dm</string>
+    <string name="workout_duration_format_minutes_only">%dm</string>
+</resources>

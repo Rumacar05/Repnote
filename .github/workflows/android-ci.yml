@@ -1,0 +1,90 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create google-services.json
+        shell: bash
+        run: |
+          mkdir -p app
+          printf "%s" "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 -d > app/google-services.json
+
+      - name: Create local.properties
+        shell: bash
+        run: |
+          cat > local.properties <<EOF
+          cloudinary.cloud.name=${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          cloudinary.api.key=${{ secrets.CLOUDINARY_API_KEY }}
+          cloudinary.api.secret=${{ secrets.CLOUDINARY_API_SECRET }}
+          EOF
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-read-only: false
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Run Detekt
+        run: ./gradlew detekt --no-daemon
+        continue-on-error: false
+
+      - name: Run Ktlint
+        run: ./gradlew ktlintCheck --no-daemon
+        continue-on-error: false
+
+      - name: Build Debug
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest --no-daemon
+
+      - name: Run Lint
+        run: ./gradlew lintDebug --no-daemon
+
+      - name: Upload Lint Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-report
+          path: app/build/reports/lint-results-debug.html
+
+      - name: Upload Detekt Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: detekt-report
+          path: app/build/reports/detekt/
+
+      - name: Upload Ktlint Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ktlint-report
+          path: app/build/reports/ktlint/
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: app/build/reports/tests/

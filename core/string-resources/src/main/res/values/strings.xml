@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">Repnote</string>
+
+    <!-- Auth Strings -->
+    <string name="auth_welcome_back">Welcome Back</string>
+    <string name="auth_create_account">Create Account</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_confirm_password">Confirm Password</string>
+    <string name="auth_sign_in">Sign In</string>
+    <string name="auth_sign_up">Sign Up</string>
+    <string name="auth_register">Register</string>
+    <string name="auth_sign_out">Sign Out</string>
+    <string name="auth_google_sign_in">Sign in with Google</string>
+    <string name="auth_no_account">Don\'t have an account? Register</string>
+    <string name="auth_have_account">Already have an account? Sign In</string>
+
+    <!-- Error Messages -->
+    <string name="error_invalid_email">Invalid email address</string>
+    <string name="error_weak_password">Password must be at least 6 characters</string>
+    <string name="error_passwords_dont_match">Passwords do not match</string>
+    <string name="error_invalid_credentials">Invalid email or password</string>
+    <string name="error_user_not_found">User not found</string>
+    <string name="error_email_in_use">Email already in use</string>
+    <string name="error_network">Network error. Please check your connection</string>
+
+    <!-- Home Screen -->
+    <string name="home_welcome">Welcome to Repnote!</string>
+    <string name="home_welcome_back">Welcome back!</string>
+    <string name="home_logged_in_as">Logged in as:</string>
+    <string name="home_placeholder_message">This is a placeholder home screen.</string>
+    <string name="home_implementation_message">You can now implement your app\'s main features here.</string>
+    <string name="home_resume_active_workout">Resume Active Workout</string>
+    <string name="home_recent_workouts">Recent Workouts</string>
+    <string name="home_no_workouts_message">No workouts yet. Start your first workout from the Routines tab!</string>
+
+    <!-- Routine Actions -->
+    <string name="routine_resume_active_workout">Resume Active Workout</string>
+
+    <!-- Muscle Groups -->
+    <string name="muscle_chest">Chest</string>
+    <string name="muscle_back">Back</string>
+    <string name="muscle_shoulders">Shoulders</string>
+    <string name="muscle_biceps">Biceps</string>
+    <string name="muscle_triceps">Triceps</string>
+    <string name="muscle_forearms">Forearms</string>
+    <string name="muscle_quads">Quadriceps</string>
+    <string name="muscle_hamstrings">Hamstrings</string>
+    <string name="muscle_glutes">Glutes</string>
+    <string name="muscle_calves">Calves</string>
+    <string name="muscle_abs">Abs</string>
+    <string name="muscle_obliques">Obliques</string>
+
+    <!-- Exercise Strings -->
+    <string name="exercise_create">Create Exercise</string>
+    <string name="exercise_edit">Edit Exercise</string>
+    <string name="exercise_delete">Delete Exercise</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="exercise_description">Description</string>
+    <string name="exercise_primary_muscle">Primary Muscle</string>
+    <string name="exercise_secondary_muscles">Secondary Muscles</string>
+    <string name="exercise_image">Exercise Image</string>
+    <string name="exercise_global">Global Exercise</string>
+    <string name="exercise_custom">Custom Exercise</string>
+
+    <!-- Exercise Error Messages -->
+    <string name="error_exercise_not_found">Exercise not found</string>
+    <string name="error_unauthorized_access">You don\'t have permission to modify this exercise</string>
+    <string name="error_invalid_exercise_data">Invalid exercise data</string>
+    <string name="error_storage">Error uploading image</string>
+
+    <!-- Profile Strings -->
+    <string name="profile_title">Profile</string>
+    <string name="profile_sign_out">Sign Out</string>
+    <string name="profile_logged_in_as">Logged in as:</string>
+    <string name="profile_my_routines">Mis rutinas</string>
+
+    <!-- Routine Strings -->
+    <string name="routine_my_routines">My Routines</string>
+    <string name="routine_create">Create routine</string>
+    <string name="routine_exercises">Exercises</string>
+    <string name="routine_empty_title">No routines yet</string>
+    <string name="routine_empty_message">Create your first workout routine to get started</string>
+
+    <!-- Routine Creation/Edit -->
+    <string name="routine_create_title">Create Routine</string>
+    <string name="routine_edit_title">Edit Routine</string>
+    <string name="routine_detail_title">Routine Details</string>
+    <string name="routine_name">Routine Name</string>
+    <string name="routine_description">Description</string>
+    <string name="routine_description_optional">Description (optional)</string>
+    <string name="routine_add_exercise">Add Exercise</string>
+    <string name="routine_save">Save</string>
+    <string name="routine_cancel">Cancel</string>
+    <string name="routine_delete">Delete Routine</string>
+    <string name="routine_delete_confirm_title">Delete Routine?</string>
+    <string name="routine_delete_confirm_message">This action cannot be undone.</string>
+    <string name="routine_edit">Edit</string>
+
+    <!-- Exercise Configuration -->
+    <string name="exercise_sets">Sets</string>
+    <string name="exercise_reps">Reps</string>
+    <string name="exercise_rest">Rest (sec)</string>
+    <string name="exercise_notes">Notes</string>
+    <string name="exercise_remove">Remove</string>
+    <string name="exercise_select">Select Exercise</string>
+    <string name="exercise_search">Search exercises</string>
+
+    <!-- Validation Errors -->
+    <string name="error_routine_name_empty">Routine name cannot be empty</string>
+    <string name="error_routine_no_exercises">Add at least one exercise</string>
+    <string name="error_invalid_sets">Sets must be greater than 0</string>
+    <string name="error_invalid_reps">Reps must be greater than 0</string>
+    <string name="error_invalid_rest">Rest time cannot be negative</string>
+
+    <!-- Success Messages -->
+    <string name="routine_created">Routine created successfully</string>
+    <string name="routine_updated">Routine updated successfully</string>
+    <string name="routine_deleted">Routine deleted</string>
+
+    <!-- Workout History -->
+    <string name="workout_history_title">Workout History</string>
+    <string name="workout_history_empty">No workouts recorded yet</string>
+    <string name="workout_status_completed">✓ Completed</string>
+    <string name="workout_status_in_progress">⏸ In Progress</string>
+    <string name="workout_status_abandoned">✗ Abandoned</string>
+    <string name="workout_free_workout">Free workout</string>
+    <string name="workout_ad_hoc">Ad-hoc Workout</string>
+    <string name="workout_exercises_count">%d exercises</string>
+    <string name="workout_duration_format" formatted="false">%dh %dm</string>
+    <string name="workout_duration_format_minutes_only">%dm</string>
+</resources>
