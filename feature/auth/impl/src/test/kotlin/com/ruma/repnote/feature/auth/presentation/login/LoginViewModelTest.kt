@@ -1,6 +1,7 @@
 package com.ruma.repnote.feature.auth.presentation.login
 
 import app.cash.turbine.test
+import com.ruma.repnote.core.analytics.domain.service.AnalyticsService
 import com.ruma.repnote.core.auth.domain.model.AuthException
 import com.ruma.repnote.core.auth.domain.model.AuthResult
 import com.ruma.repnote.core.auth.domain.model.AuthUser
@@ -26,13 +27,15 @@ import org.junit.jupiter.api.Test
 class LoginViewModelTest {
     private val testDispatcher = StandardTestDispatcher()
     private lateinit var signInWithEmailUseCase: SignInWithEmailUseCase
+    private lateinit var analyticsService: AnalyticsService
     private lateinit var viewModel: LoginViewModel
 
     @BeforeEach
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         signInWithEmailUseCase = mockk()
-        viewModel = LoginViewModel(signInWithEmailUseCase)
+        analyticsService = mockk(relaxed = true)
+        viewModel = LoginViewModel(signInWithEmailUseCase, analyticsService)
     }
 
     @AfterEach

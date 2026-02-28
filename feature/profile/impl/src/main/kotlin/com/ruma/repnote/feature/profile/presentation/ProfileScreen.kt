@@ -25,6 +25,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.ruma.repnote.core.analytics.compose.TrackScreenView
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsScreen
 import com.ruma.repnote.core.designsystem.components.RepnoteScreen
 import org.koin.androidx.compose.koinViewModel
 import com.ruma.repnote.core.stringresources.R as StringRes
@@ -52,6 +54,8 @@ internal fun ProfileRoot(
     onNavigateToRoutines: () -> Unit,
     viewModel: ProfileViewModel = koinViewModel(),
 ) {
+    TrackScreenView(AnalyticsScreen.PROFILE)
+
     val uiState by viewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {

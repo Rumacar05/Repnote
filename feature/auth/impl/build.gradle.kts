@@ -8,6 +8,7 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.analytics.impl)
     api(projects.feature.auth.api)
     implementation(projects.core.auth.api)
 }

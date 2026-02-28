@@ -1,5 +1,6 @@
 package com.ruma.repnote.feature.workout.presentation.active
 
+import com.ruma.repnote.core.analytics.domain.service.AnalyticsService
 import com.ruma.repnote.core.auth.domain.model.AuthUser
 import com.ruma.repnote.core.auth.domain.usecase.GetCurrentUserUseCase
 import com.ruma.repnote.core.domain.model.CompletedSet
@@ -36,6 +37,7 @@ class ActiveWorkoutViewModelTest {
     private val testDispatcher = StandardTestDispatcher(testScheduler)
     private lateinit var workoutRepository: WorkoutRepository
     private lateinit var getCurrentUserUseCase: GetCurrentUserUseCase
+    private lateinit var analyticsService: AnalyticsService
     private lateinit var viewModel: ActiveWorkoutViewModel
 
     private val mockUser =
@@ -91,6 +93,7 @@ class ActiveWorkoutViewModelTest {
         Dispatchers.setMain(testDispatcher)
         workoutRepository = mockk(relaxed = true)
         getCurrentUserUseCase = mockk()
+        analyticsService = mockk(relaxed = true)
 
         every { getCurrentUserUseCase() } returns flowOf(mockUser)
     }
@@ -105,6 +108,7 @@ class ActiveWorkoutViewModelTest {
             ActiveWorkoutViewModel(
                 workoutRepository = workoutRepository,
                 getCurrentUser = getCurrentUserUseCase,
+                analyticsService = analyticsService,
                 enableTimeTracking = false,
             )
     }
@@ -135,6 +139,7 @@ class ActiveWorkoutViewModelTest {
                         ActiveWorkoutViewModel(
                             workoutRepository = workoutRepository,
                             getCurrentUser = getCurrentUserUseCase,
+                            analyticsService = analyticsService,
                             enableTimeTracking = false,
                         )
                     viewModel.navigationEvent.collect { events.add(it) }

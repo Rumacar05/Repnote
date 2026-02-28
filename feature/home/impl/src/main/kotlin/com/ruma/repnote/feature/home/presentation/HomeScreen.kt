@@ -32,6 +32,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.ruma.repnote.core.analytics.compose.TrackScreenView
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsScreen
 import com.ruma.repnote.core.designsystem.components.RepnoteScreen
 import com.ruma.repnote.core.designsystem.extensions.toStringRes
 import com.ruma.repnote.core.domain.model.WorkoutSession
@@ -67,6 +69,8 @@ internal fun HomeRoot(
     onNavigateToSessionDetail: (String) -> Unit = {},
     viewModel: HomeViewModel = koinViewModel(),
 ) {
+    TrackScreenView(AnalyticsScreen.HOME)
+
     val uiState by viewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {

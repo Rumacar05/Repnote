@@ -12,6 +12,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
+import com.ruma.repnote.core.analytics.compose.TrackScreenView
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsScreen
 import com.ruma.repnote.core.designsystem.components.RepnoteScreen
 import com.ruma.repnote.core.domain.model.Routine
 import com.ruma.repnote.feature.routine.presentation.components.RoutinesContent
@@ -47,6 +49,8 @@ internal fun RoutinesRoot(
     onResumeWorkout: (String) -> Unit,
     viewModel: RoutinesViewModel = koinViewModel(),
 ) {
+    TrackScreenView(AnalyticsScreen.ROUTINES)
+
     val uiState by viewModel.uiState.collectAsState()
 
     NavigationHandler(

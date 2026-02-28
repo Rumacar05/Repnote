@@ -3,6 +3,8 @@ package com.ruma.repnote.feature.workout.presentation.active
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsEvent
+import com.ruma.repnote.core.analytics.domain.service.AnalyticsService
 import com.ruma.repnote.core.auth.domain.usecase.GetCurrentUserUseCase
 import com.ruma.repnote.core.domain.model.CompletedSet
 import com.ruma.repnote.core.domain.model.WorkoutResult
@@ -28,6 +30,7 @@ import kotlinx.coroutines.launch
 class ActiveWorkoutViewModel(
     private val workoutRepository: WorkoutRepository,
     private val getCurrentUser: GetCurrentUserUseCase,
+    private val analyticsService: AnalyticsService,
     private val enableTimeTracking: Boolean = true,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(ActiveWorkoutUiState())
@@ -299,6 +302,15 @@ class ActiveWorkoutViewModel(
             isNavigatingAway = true
             when (val result = workoutRepository.completeSession(user.uid, session.id)) {
                 is WorkoutResult.Success -> {
+                    val totalSets = session.exercises.sumOf { it.completedSets.size }
+                    analyticsService.logEvent(
+                        AnalyticsEvent.WorkoutCompleted(
+                            sessionId = session.id,
+                            durationSeconds = _uiState.value.totalElapsedSeconds,
+                            exerciseCount = session.exercises.size,
+                            totalSets = totalSets,
+                        ),
+                    )
                     _navigationEvent.emit(
                         ActiveWorkoutNavigationEvent.NavigateToSessionSummary(session.id),
                     )
@@ -330,6 +342,14 @@ class ActiveWorkoutViewModel(
             saveSessionImmediately()
 
             isNavigatingAway = true
+            val completedExercises = session.exercises.count { it.completedSets.isNotEmpty() }
+            analyticsService.logEvent(
+                AnalyticsEvent.WorkoutAbandoned(
+                    sessionId = session.id,
+                    durationSeconds = _uiState.value.totalElapsedSeconds,
+                    completedExercises = completedExercises,
+                ),
+            )
             workoutRepository.abandonSession(user.uid, session.id)
             _navigationEvent.emit(ActiveWorkoutNavigationEvent.NavigateBack)
         }

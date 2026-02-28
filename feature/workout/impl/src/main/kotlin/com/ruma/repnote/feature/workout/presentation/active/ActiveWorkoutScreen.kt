@@ -29,6 +29,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.ruma.repnote.core.analytics.compose.TrackScreenView
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsScreen
 import com.ruma.repnote.core.designsystem.components.RepnoteScreen
 import com.ruma.repnote.core.designsystem.theme.Spacings
 import com.ruma.repnote.feature.workout.presentation.active.components.AbandonWorkoutDialog
@@ -61,6 +63,8 @@ internal fun ActiveWorkoutRoot(
     onNavigateToSessionSummary: (String) -> Unit,
     viewModel: ActiveWorkoutViewModel = koinViewModel(),
 ) {
+    TrackScreenView(AnalyticsScreen.ACTIVE_WORKOUT)
+
     val uiState by viewModel.uiState.collectAsState()
     val inputState by viewModel.setInputState.collectAsState()
     val restTimerSheetState = rememberModalBottomSheetState()

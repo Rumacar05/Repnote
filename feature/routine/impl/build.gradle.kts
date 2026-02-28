@@ -8,6 +8,7 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.analytics.impl)
     implementation(projects.core.domain)
     implementation(projects.core.stringResources)
     implementation(projects.core.auth.api)

@@ -18,6 +18,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
+import com.ruma.repnote.core.analytics.compose.TrackScreenView
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsScreen
 import com.ruma.repnote.core.designsystem.components.RepnoteScreen
 import com.ruma.repnote.feature.routine.presentation.detail.components.RoutineDetailContent
 import org.koin.androidx.compose.koinViewModel
@@ -49,6 +51,8 @@ internal fun RoutineDetailRoot(
     onNavigateToActiveWorkout: () -> Unit,
     viewModel: RoutineDetailViewModel = koinViewModel(key = routineId),
 ) {
+    TrackScreenView(AnalyticsScreen.ROUTINE_DETAIL)
+
     LaunchedEffect(routineId) {
         viewModel.initialize(routineId)
     }

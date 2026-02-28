@@ -9,7 +9,7 @@ import org.koin.dsl.module
 
 val workoutFeatureModule =
     module {
-        viewModel { ActiveWorkoutViewModel(get(), get(), enableTimeTracking = true) }
+        viewModel { ActiveWorkoutViewModel(get(), get(), get(), enableTimeTracking = true) }
         viewModelOf(::WorkoutHistoryViewModel)
         viewModelOf(::SessionSummaryViewModel)
     }

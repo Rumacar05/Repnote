@@ -19,6 +19,7 @@ class JvmTestConventionPlugin : Plugin<Project> {
                 TEST_IMPLEMENTATION(libs.findLibrary("junit.jupiter.params").get())
                 TEST_RUNTIME_ONLY(libs.findLibrary("junit.jupiter.engine").get())
                 TEST_RUNTIME_ONLY(libs.findLibrary("junit.jupiter.vintage.engine").get())
+                TEST_RUNTIME_ONLY(libs.findLibrary("junit.jupiter.launcher").get())
                 TEST_IMPLEMENTATION(libs.findLibrary("mockk").get())
                 TEST_IMPLEMENTATION(libs.findLibrary("kluent").get())
                 TEST_IMPLEMENTATION(libs.findLibrary("kotest").get())

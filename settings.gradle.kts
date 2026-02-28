@@ -24,6 +24,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Repnote"
 include(":app")
 
+include(":core:analytics:api")
+include(":core:analytics:impl")
 include(":core:auth:api")
 include(":core:auth:impl")
 include(":core:data")

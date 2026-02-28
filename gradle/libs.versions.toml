@@ -4,8 +4,8 @@ javaVersion = "21"
 compileSdk = "36"
 targetSdk = "36"
 minSdk = "24"
-versionCode = "13"
-versionName = "0.0.6-RC2"
+versionCode = "14"
+versionName = "0.0.6-RC3"
 
 agp = "8.13.2"
 kotlin = "2.3.0"
@@ -27,6 +27,7 @@ nav3Core = "1.0.0"
 firebaseBom = "34.8.0"
 room = "2.8.4"
 googleServices = "4.4.4"
+firebaseCrashlytics = "3.0.6"
 playServicesAuth = "21.5.0"
 credentials = "1.5.0"
 credentialsPlayServices = "1.5.0"
@@ -87,6 +88,7 @@ koin-test-junit5 = { group = "io.insert-koin", name = "koin-test-junit5" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 firebase-storage = { module = "com.google.firebase:firebase-storage" }
 firebase-remote-config = { module = "com.google.firebase:firebase-config" }
@@ -173,6 +175,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.22" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 jetbrains-kotlin-serialization = { id ="org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerialization"}

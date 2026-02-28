@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.convention.android.application)
     alias(libs.plugins.convention.android.koin)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
     alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
@@ -57,6 +58,7 @@ android {
 
 dependencies {
     // Core modules
+    implementation(projects.core.analytics.impl)
     implementation(projects.core.designSystem)
     implementation(projects.core.stringResources)
     implementation(projects.core.auth.impl)

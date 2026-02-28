@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import com.ruma.repnote.core.analytics.compose.TrackScreenView
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsScreen
 import com.ruma.repnote.core.designsystem.components.RepnoteScreen
 import com.ruma.repnote.feature.auth.presentation.login.components.LoginContent
 import org.koin.androidx.compose.koinViewModel
@@ -27,6 +29,8 @@ internal fun LoginRoot(
     onNavigateToHome: () -> Unit,
     viewModel: LoginViewModel = koinViewModel(),
 ) {
+    TrackScreenView(AnalyticsScreen.LOGIN)
+
     val uiState by viewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {

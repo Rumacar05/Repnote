@@ -3,6 +3,7 @@ package com.ruma.repnote
 import android.app.Application
 import androidx.work.Configuration
 import com.cloudinary.android.MediaManager
+import com.ruma.repnote.core.analytics.di.analyticsModule
 import com.ruma.repnote.core.auth.di.authDataModule
 import com.ruma.repnote.core.data.di.dataModule
 import com.ruma.repnote.core.database.di.databaseModule
@@ -33,6 +34,7 @@ class RepnoteApplication :
             workManagerFactory()
             modules(
                 // Core modules
+                analyticsModule,
                 databaseModule,
                 dataModule,
                 authDataModule,

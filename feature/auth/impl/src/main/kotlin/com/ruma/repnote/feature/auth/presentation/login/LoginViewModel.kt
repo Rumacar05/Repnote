@@ -2,6 +2,8 @@ package com.ruma.repnote.feature.auth.presentation.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ruma.repnote.core.analytics.domain.model.AnalyticsEvent
+import com.ruma.repnote.core.analytics.domain.service.AnalyticsService
 import com.ruma.repnote.core.auth.domain.model.AuthException
 import com.ruma.repnote.core.auth.domain.model.AuthResult
 import com.ruma.repnote.feature.auth.domain.AuthConstants
@@ -15,6 +17,7 @@ import kotlinx.coroutines.launch
 
 internal class LoginViewModel(
     private val signInWithEmailUseCase: SignInWithEmailUseCase,
+    private val analyticsService: AnalyticsService,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState = _uiState.asStateFlow()
@@ -40,6 +43,7 @@ internal class LoginViewModel(
         if (!validateInput()) return
 
         viewModelScope.launch {
+            analyticsService.logEvent(AnalyticsEvent.LoginStarted)
             _uiState.update { it.copy(isLoading = true, errorMessage = null) }
 
             when (
@@ -47,11 +51,15 @@ internal class LoginViewModel(
                     signInWithEmailUseCase(_uiState.value.email, _uiState.value.password)
             ) {
                 is AuthResult.Success -> {
+                    analyticsService.setUserId(result.data.uid)
+                    analyticsService.logEvent(AnalyticsEvent.LoginSuccess(method = "email"))
                     _uiState.update { it.copy(isLoading = false) }
                     _navigationEvent.emit(LoginNavigationEvent.NavigateToHome)
                 }
 
                 is AuthResult.Error -> {
+                    val errorType = result.exception.javaClass.simpleName
+                    analyticsService.logEvent(AnalyticsEvent.LoginFailed(errorType))
                     _uiState.update {
                         it.copy(
                             isLoading = false,
